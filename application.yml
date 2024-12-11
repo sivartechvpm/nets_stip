@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: nets-card
+  datasource:
+    url: jdbc:mysql://localhost:3306/nets_card_manage
+    username: root
+    password: Mysql@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+       
+server:
+  port: 9090
+
+app:
+  netsPublicKey:IIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxyz
+
+
+
+management:
+  endpoints:
+    web:
+      exposure.include: beans, env, health, info, metrics, mappings
+  endpoint:
+    health:
+      show-details: always
+
+springdoc:
+  show-actuator: true
+  swagger-ui:
+    groups-order: DESC
+    disable-swagger-default-url: true
+
+
+external:
+  api:
+    update-url: http://external-service-url/update
+    inquiry-url: http://external-service-url/inquiry
